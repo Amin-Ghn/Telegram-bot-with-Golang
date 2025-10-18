@@ -14,7 +14,7 @@ func ShowMainMenu(bot *tgbotapi.BotAPI, chatID int6, lang string ) {
 	case "ar":
 		text = "القائمه الرییسیه\nالمنتجات\nمعلومات عنا\nنمایندگان\nاتصل بنا"
 	default:
-		text = "Main Menu:\nProducts\nAbout Us:\nAgencies\nContact Us:"
+		text = "Main Menu:\nProducts\nAbout Us:\nRepresentatives\nContact Us:"
 
 	}
 msg := tgbotapi.NewMessage(chatID, text)
@@ -23,7 +23,7 @@ msg.ReplyMarkup = tgbotapi.NewReplyKeyboard(
 		tgbotapi.NewKeyboardButton(getButtonText("products", lang)),
 		tgbotapi.NewKeyboardButton(getButtonText("About Us", lang)),
 		tgbotapi.NewKeyboardButton(getButtonText(("Contact Us", lang)),
-		tgbotapi.NewKeyboardButton(getButtonText("Agencies", lang)),
+		tgbotapi.NewKeyboardButton(getButtonText("Representatives", lang)),
 
 		),
 
