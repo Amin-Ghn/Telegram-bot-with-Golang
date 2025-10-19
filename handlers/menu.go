@@ -22,7 +22,7 @@ msg.ReplyMarkup = tgbotapi.NewReplyKeyboard(
 	tgbotapi.NewKeyboardButtonRow(
 		tgbotapi.NewKeyboardButton(getButtonText("products", lang)),
 		tgbotapi.NewKeyboardButton(getButtonText("About Us", lang)),
-		tgbotapi.NewKeyboardButton(getButtonText(("Contact Us", lang)),
+		tgbotapi.NewKeyboardButton(getButtonText("Contact Us", lang)),
 		tgbotapi.NewKeyboardButton(getButtonText("Representatives", lang)),
 
 		),
@@ -32,5 +32,32 @@ bot.Send(msg)
 
 }
 func getButtonText(key string, lang string) string {
+	translations := map[string]map[string]string{
+		"products" :{
+			"fa": "محصولات",
+			"ar": "المنتجات",
+			"en": "products",
+		},
+		"AboutUs": {
+			"fa" : "درباره ما",
+			"ar" : "معلومات عنا",
+			"en" : "About Us",
+		},
+		"ContactUs": {
+			"fa" : "ارتباط با ما",
+			"ar" : "اتصل بنا",
+			"en" : "Contact Us",
+		},
+		"Representatives" : {
+			"fa" : "نمایندگان",
+			"ar" : "الممثلین",
+			"en" : "Representatives",
+		}
+		if trans, ok := translations[key]; ok {
+			if text, ok := trans[lang]; ok {
+				return text
+			}
 
+		}
+	}
 }
