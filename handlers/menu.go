@@ -52,7 +52,7 @@ func getButtonText(key string, lang string) string {
 			"fa" : "نمایندگان",
 			"ar" : "الممثلین",
 			"en" : "Representatives",
-		}
+		},
 		if trans, ok := translations[key]; ok {
 			if text, ok := trans[lang]; ok {
 				return text
